@@ -22,5 +22,8 @@ describe('Game', function() {
       game.move(0,'X');
       expect(function(){ game.move(0,'X'); }).toThrowError('Position taken');
     });
+    it('should error if the position is not on the board', function() {
+      expect(function(){ game.move(10,'X'); }).toThrowError('Invalid position');
+    });
   });
 });

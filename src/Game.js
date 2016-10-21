@@ -12,6 +12,7 @@ Game.prototype = {
     return [firstRow, secondRow, thirdRow];
   },
   move: function(position, counter) {
+    this._checkValid(position);
     this._checkTaken(position);
     this.board[position] = counter;
   },
@@ -20,5 +21,11 @@ Game.prototype = {
   },
   _isTaken: function(position) {
     return this.board[position] !== '';
+  },
+  _checkValid: function(position) {
+    if (this._isInvalid(position)) { throw new Error ('Invalid position'); }
+  },
+  _isInvalid: function(position) {
+    return this.board[position] === undefined;
   }
 };
