@@ -26,4 +26,11 @@ describe('Game', function() {
       expect(function(){ game.move(10,'X'); }).toThrowError('Invalid position');
     });
   });
+
+  describe('#turnCount', function() {
+    it('should know how many moves have been made', function() {
+      game.move(0,'X');
+      expect(game.turnCount).toEqual(1);
+    });
+  });
 });
